@@ -2,12 +2,40 @@
   <head>
     <meta charset="UTF-8" />
     <title>Chat App</title>
+    <style>
+
+      body{
+        margin: 0px;
+      }
+
+      .chatting-div{
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+      }
+
+      #message{
+        height: 50px;
+        width: 100%;
+      }
+
+      #sendBtn{
+        padding: 20px 24px 11px 24px;
+        background-color: #0069d9;
+        border-color: #0062cc;
+        position: absolute;
+        right: 0;
+        color: #fff;
+      }
+    </style>
   </head>
 
   <body>
     <h1>Chatting</h1>
-    <input type="text" id="message" placeholder="Enter Message" />
-    <button id="sendBtn">Send</button>
+    <div class="chatting-div">
+      <input type="text" id="message" placeholder="Enter Message" />
+      <button id="sendBtn">Send</button>
+    </div>
 
     <div id="messages">
 
@@ -30,6 +58,7 @@
         const message = messageInput.value;
         console.log(message);
         socket.emit('user-message', message);
+        messageInput.value = ""
       });
     </script>
   </body>
